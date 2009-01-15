@@ -1,0 +1,22 @@
+================================================================================
+jQuery HashSlice
+================================================================================
+The great and first Hash slice JavaScript implementation. A hash is also an Object, the two are interchangeable. This hashslice method allows quick syntax for grabbing an array of hash elements. Also, as in Perl, hashslice can be used to join new elements between two hashes. Perl provides a much preferred interface to hash slicing.
+
+================================================================================
+EXAMPLES & USAGE
+================================================================================
+ - Open jquery.hashslice.test.html to run tests against your browser.
+ - Open jquery.hashslice.js source file to read examples.
+
+================================================================================
+INSTALLATION
+================================================================================
+ - To add this module to jQuery, simply append the minified code in
+   jquery.hashslice.min.js to the bottom of jquery.1.x.x.min.js.
+
+ - The following command does this easily (make sure to place the correct
+   jQuery version numbers):
+
+cat jquery.hashslice.min.js >> jquery.1.x.x.min.js
+
