@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"
+      xml:lang="en" >
+    <head>
+        <title>jQuery Hash Slice Examples</title>
+
+        <script src="jquery-1.2.6.min.js"></script>
+        <script src="jquery.hashslice.js"></script>
+
+        <style type="text/css">
+            body {
+                margin: 0px;
+                padding: 0px;
+                background-color: #eeeeec;
+            }
+            td.info {
+                padding: 4px;
+                color: #2e3436;
+                background-color: #babdb6;
+                font-size: 14px;
+                font-family: Arial;
+            }
+            td.pass {
+                padding: 4px;
+                background-color: #4e9a06;
+                color: #eeeeec;
+                font-size: 14px;
+                font-family: Arial;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            td.fail {
+                padding: 4px;
+                background-color: #a40000;
+                color: #eeeeec;
+                font-size: 14px;
+                font-weight: bold;
+                font-family: Arial;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            #test-box {
+                font-size: 14px;
+                font-family: Arial;
+                color: #2e3436;
+                background-color: #babdb6;
+                padding: 20px;
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="test-box"></table>
+
+        <script type="application/javascript">
+            $(function() {
+                // Tester
+                var tester = {
+                        pass : '<td class="pass">pass</td>',
+                        fail : '<td class="fail">fail</td>',
+                        info : '<td class="info">?</td>',
+                        test : function( eq, expected, msg ) {
+                            $("#test-box").append(
+                                '<tr>' +
+                                tester.info.replace( /\?/, msg ) +
+                                ( eq == expected ? tester.pass : tester.fail ) +
+                                tester.info.replace(
+                                    /\?/, '[Got: ' + eq + ']'
+                                ) +
+                                tester.info.replace(
+                                    /\?/, '[Expected: ' + expected + ']'
+                                ) +
+                                '</tr>'
+                            );
+                        }
+                    },
+                    hash = {
+                        candy   : 'okay',
+                        apples  : 2,
+                        berries : 'yes',
+                        pies    : 'flavor',
+                        sand    : { bead : ['success', 2] }
+                    };
+
+                // TEST ONE (1)
+                var list1 = $.hashslice( hash, 'apples berries pies' );
+                tester.test(
+                    list1[2],
+                    'flavor',
+                    'Prefered whitespace delimiter: '
+                );
+
+                // TEST TWO (2)
+                var list2 = $.hashslice( hash, 'apples | berries | pies' );
+                tester.test(
+                    list2[1],
+                    'yes',
+                    'Multi-character delimiting list: '
+                );
+
+                // TEST THREE (3)
+                tester.test(
+                    $.hashslice( hash, 'sand' )[0].bead[0],
+                    'success',
+                    'Deep copy from jQuery.extend: '
+                );
+
+                // TEST FOUR (4)
+                tester.test(
+                    $.hashslice( hash, 'sand :$\\ pies #! candy' )[2],
+                    'okay',
+                    'Uncommon delimiters: '
+                );
+
+                // TEST FIVE (5)
+                tester.test(
+                    $.hashslice( hash, 'newelm', {newelm:'yup'} ).newelm,
+                    'yup',
+                    'Slice in new elements: '
+                );
+
+                // TEST SIX (6)
+                tester.test(
+                    $.hashslice( hash, 'newelm apple sand', hash ).sand.bead[0],
+                    'success',
+                    'Self slicing old elements: '
+                );
+            });
+        </script>
+    </body>
+</html> 
