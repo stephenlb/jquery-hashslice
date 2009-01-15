@@ -7,7 +7,7 @@
  * Author:  Stephen Blum
  * Twitter: stephenlb
  *
- * GitHub:  xxxxxxxxxxxxxxxxxx
+ * GitHub:  git://github.com/stephenlb/jquery-hashslice.git
  *
  * Files:   jquery.hashslice.js      ## Source
  *          jquery.hashslice.min.js  ## Minified hashslice JS lib
