@@ -76,15 +76,18 @@
  *----------------------------------------------------------------------------
  */
 jQuery.hashslice = function( hash, elements, update ) {
-    var list = jQuery.extend( true, [], update || hash ),        // deep copy
-        elms = typeof elements === 'string' ?                    // is list?
-               elements.replace(/^\W+|\W+$/g, '').split(/\W+/) : // arrayify
-               elements;                                         // default
+    var list = jQuery.extend( true, [], update || hash ), // deep copy
+        elms = typeof elements === 'string' ?             // is str list?
+               elements.
+               replace(/^\W+|\W+$/g, '').                 // trim
+               split(/\W+/) :                             // arrayify
+               elements;                                  // else default
 
-    jQuery.each( elms, function(elm) {                           // itterate
-        if (update) hash[elms[elm]] = list[elms[elm]];           // slice in
-        else        list.push(list[elms[elm]]);                  // slice out
+    jQuery.each( elms, function(elm) {                    // itterate
+        var e = elms[elm];
+        if (update) hash[e] = list[e] || list[elm];       // slice in
+        else        list.push(list[e]);                   // slice out
     } );
 
-    return update ? hash : list;                                 // in or out
+    return update ? hash : list;                          // return in or out
 };
