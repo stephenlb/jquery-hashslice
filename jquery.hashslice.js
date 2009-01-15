@@ -15,11 +15,12 @@
  *          minify.pl                ## Perl JS Minifier 
  *                                   ## ./minify.pl code.js > min.js
  *
- * Summary: Cross-browser hash slice implementation in JavaScript.  In
- *          JavaScript a hash is also an Object, the two are interchangeable.
- *          This hashslice method allows quick syntax for grabbing an array
- *          of hash elements. Also, as in Perl, hashslice can be used to join
- *          new elements between two hashes.
+ * Summary: The great and first Hash slice JavaScript implementation. A hash
+ *          is also an Object, the two are interchangeable. This hashslice
+ *          method allows quick syntax for grabbing an array of hash elements.
+ *          Also, as in Perl, hashslice can be used to join new elements
+ *          between two hashes. Perl provides a much preferred interface to
+ *          hash slicing.
  * 
  * ---------------------------------------------------------------------------
  * USAGE TYPE 1: Single string with whitespace delimiters. **** FAVORITE ****
