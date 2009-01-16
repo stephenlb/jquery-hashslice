@@ -1,7 +1,11 @@
 ================================================================================
 jQuery HashSlice
 ================================================================================
-The great and first Hash slice JavaScript implementation. A hash is also an Object, the two are interchangeable. This hashslice method allows quick syntax for grabbing an array of hash elements. Also, as in Perl, hashslice can be used to join new elements between two hashes. Perl provides a much preferred interface to hash slicing.
+The great and first Hash slice JavaScript implementation. A hash is also an
+Object, the two are interchangeable. This hashslice method allows quick syntax
+for grabbing an array of hash elements. Also, as in Perl, hashslice can be used
+to join new elements between two hashes. Perl provides a much preferred
+interface to hash slicing.
 
 ================================================================================
 EXAMPLES & USAGE
