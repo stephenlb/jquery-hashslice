@@ -9,7 +9,7 @@ while(<>) { $build .= $_; }
 $build =~ s/\s*\/\*.+?\*\/\s*//msg;               ## /* comment */
 $build =~ s/\s+\/\/\s+.*?$//msg;                  ## // comment
 $build =~ s/\s+/ /msg;                            ## space
-$build =~ s/ ?([?|&!:'";,()={}\[\]+\-]) ?/$1/msg; ## jsminify
+$build =~ s/ ?([?|&!:'";,.()={}\[\]+\-]) ?/$1/msg; ## jsminify
 
 print $build;
 
