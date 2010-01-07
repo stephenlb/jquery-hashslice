@@ -76,12 +76,18 @@
  *
  *----------------------------------------------------------------------------
  */
+(function(){
+
+var trim = /^\W+|\W+$/g
+,   nowd = /\W+/
+,   str  = 'string'; 
+
 jQuery.hashslice = function( hash, elements, update ) {
     var list = jQuery.extend( true, [], update || hash ), // deep copy
-        elms = typeof elements === 'string' ?             // is str list?
+        elms = typeof elements === str ?                  // is str list?
                elements.
-               replace(/^\W+|\W+$/g, '').                 // trim
-               split(/\W+/) :                             // arrayify
+               replace(trim, '').                         // trim
+               split(nowd) :                              // arrayify
                elements;                                  // else default
 
     jQuery.each( elms, function(elm) {                    // itterate
@@ -92,3 +98,5 @@ jQuery.hashslice = function( hash, elements, update ) {
 
     return update ? hash : list;                          // return in or out
 };
+
+})();
